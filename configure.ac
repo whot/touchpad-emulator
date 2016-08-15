@@ -1,0 +1,18 @@
+AC_PREREQ([2.64])
+
+AC_INIT([touchpad-emulator], [1])
+
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_MACRO_DIR([m4])
+
+AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz])
+AM_SILENT_RULES([yes])
+AC_USE_SYSTEM_EXTENSIONS
+
+AC_PROG_CC_C99
+PKG_PROG_PKG_CONFIG()
+PKG_CHECK_MODULES(EVEMU, [evemu])
+PKG_CHECK_MODULES(LIBEVDEV, [libevdev])
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
